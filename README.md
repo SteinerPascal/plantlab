@@ -32,4 +32,10 @@ To start the script: ```nohup python3 -u [scriptname]```
 - check for USB ports with python serial lib: `python3 -m serial.tools.miniterm`
 - check which pythonscripts are running: `ps -aef | grep python`
 - Continous query on Influx for data aggregation: `CREATE CONTINUOUS QUERY cq_mv_avg ON plant_raw_01_06 RESAMPLE EVERY 1h FOR 1h BEGIN SELECT mean(value) INTO plant_raw_01_06.forever.avg_mv_value FROM plant_raw_01_06.oneday.mv GROUP BY time(10s) END`
+- WIFI setup add your credentials: 
+
+```
+etc/wpa-supplicant/wpa-supplicant.conf 
+higher priority: etc/network/interfaces.file 
+```
 
